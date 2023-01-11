@@ -32,9 +32,13 @@ async function fetchRemote(url, cbProgress, cbPrint) {
     const response = await fetch(
         url,
         {
+            mode: 'cors',
             method: 'GET',
             headers: {
                 'Content-Type': 'application/octet-stream',
+                'Access-Control-Allow-Origin': '*',
+                'Cross-Origin-Embedder-Policy': 'require-corp',
+                'Cross-Origin-Opener-Policy': 'same-origin'
             },
         }
     );
