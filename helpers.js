@@ -34,10 +34,7 @@ async function fetchRemote(url, cbProgress, cbPrint) {
         {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/octet-stream',
-                'Access-Control-Allow-Origin': 'https://18nanma.github.io',
-                'Cross-Origin-Embedder-Policy': 'require-corp',
-                'Cross-Origin-Opener-Policy': 'same-origin'
+                'Content-Type': 'application/octet-stream'
             },
         }
     );
