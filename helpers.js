@@ -32,10 +32,7 @@ async function fetchRemote(url, cbProgress, cbPrint) {
     const response = await fetch(
         url,
         {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/octet-stream'
-            },
+            method: 'GET'
         }
     );
 
