@@ -425,8 +425,10 @@
             window.addEventListener('storage', function(event) {
                 if (event.key === 'isTrue') {
                     if (event.newValue === 'true') {
+                        console.log("hey")
                         onStart();
                     } else {
+                        console.log("heyf")
                         onStop();
                     }
                 }
