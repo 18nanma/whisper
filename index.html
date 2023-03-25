@@ -363,7 +363,7 @@
                     document.getElementById('state-status').innerHTML = Module.get_status();
                     document.getElementById('state-transcribed').innerHTML = transcribedAll;
                     // console.log("check transcription: "+transcribedAll);
-                    localStorage.setItem('myText', transcribedAll);
+                    sessionStorage.setItem('myText', transcribedAll);
                 }, 100);
             }
 
@@ -371,13 +371,13 @@
                 stopRecording();
             }
 
-            // set text from local
+            // set text from sessionStorage
 
             // Get the element where we want to display the text
             const myElement = document.querySelector('#myElement');
 
             // Get the initial value of the session variable
-            let myText = localStorage.getItem('myText');
+            let myText = sessionStorage.getItem('myText');
 
             // Display the initial value of the session variable
             myElement.value = myText;
@@ -392,11 +392,11 @@
 
             // button click
 
-            let isTrue = localStorage.getItem('isTrue') === 'true';
+            let isTrue = sessionStorage.getItem('isTrue') === 'true';
 
             function toggleBoolean() {
             isTrue = !isTrue;
-            localStorage.setItem('isTrue', isTrue.toString());
+            sessionStorage.setItem('isTrue', isTrue.toString());
             }
 
             // Add an event listener to a button that toggles the boolean
