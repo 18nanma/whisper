@@ -381,6 +381,8 @@
 
                     document.getElementById('state-status').innerHTML = Module.get_status();
                     document.getElementById('state-transcribed').innerHTML = transcribedAll;
+                    console.log("f: "+transcribedAll);
+                    localStorage.setItem('myText', transcribedAll);
                 }, 100);
             }
 
