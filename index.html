@@ -405,7 +405,7 @@
 
             // simulating button clicks
 
-            window.addEventListener('storageEventHandler', function(event) {
+            window.addEventListener('storage', (event) => {
                 if (event.key === 'isTrue') {
                     if (event.newValue === 'true') {
                         console.log("hey")
