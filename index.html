@@ -50,10 +50,14 @@
                 <button id="fetch-whisper-base-en" onclick="loadWhisper('base.en')">base.en (142 MB)</button>
                 <span id="fetch-whisper-progress"></span>
 
+
                 <!--
                     <input type="file" id="file" name="file" onchange="loadFile(event, 'whisper.bin')" />
                 -->
             </div>
+
+            <div> <button id="myButton"></button> </div>
+            <textarea id="myElement" rows="10"></textarea>
 
             <br>
 
@@ -132,6 +136,50 @@
                     printTextarea('js: Initialized successfully!');
                 }
             };
+
+            // set text from session
+
+            // Get the element where we want to display the text
+            const myElement = document.querySelector('#myElement');
+
+            // Get the initial value of the session variable
+            let myText = sessionStorage.getItem('myText');
+
+            // Display the initial value of the session variable
+            myElement.innerText = myText;
+
+            // Add an event listener to detect changes in the session variable
+            window.addEventListener('storage', function(event) {
+            if (event.key === 'myText') {
+                myText = event.newValue;
+                myElement.innerText = myText;
+            }
+            });
+
+            // button click
+
+            let isTrue = sessionStorage.getItem('isTrue') === 'true';
+
+            function toggleBoolean() {
+            isTrue = !isTrue;
+            sessionStorage.setItem('isTrue', isTrue.toString());
+            }
+
+            // Add an event listener to a button that toggles the boolean
+            const button = document.querySelector('#myButton');
+            button.addEventListener('click', toggleBoolean);
+
+            // simulating button clicks
+
+            window.addEventListener('storage', function(event) {
+                if (event.key === 'isTrue') {
+                    if (event.newValue === 'true') {
+                        onStart();
+                    } else {
+                        onStop();
+                    }
+                }
+            });
 
             //
             // fetch models
