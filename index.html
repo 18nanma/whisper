@@ -374,34 +374,34 @@
             // set text from sessionStorage
 
             // Get the element where we want to display the text
-            const myElement = document.querySelector('#myElement');
+            // const myElement = document.querySelector('#myElement');
 
-            // Get the initial value of the session variable
-            let myText = sessionStorage.getItem('myText');
+            // // Get the initial value of the session variable
+            // let myText = sessionStorage.getItem('myText');
 
-            // Display the initial value of the session variable
-            myElement.value = myText;
+            // // Display the initial value of the session variable
+            // myElement.value = myText;
 
-            // Add an event listener to detect changes in the session variable
-            window.addEventListener('storage', function(event) {
-            if (event.key === 'myText') {
-                myText = event.newValue;
-                myElement.value = myText;
-            }
-            });
+            // // Add an event listener to detect changes in the session variable
+            // window.addEventListener('storage', function(event) {
+            // if (event.key === 'myText') {
+            //     myText = event.newValue;
+            //     myElement.value = myText;
+            // }
+            // });
 
             // button click
 
-            let isTrue = sessionStorage.getItem('isTrue') === 'true';
+            // let isTrue = sessionStorage.getItem('isTrue') === 'true';
 
-            function toggleBoolean() {
-            isTrue = !isTrue;
-            sessionStorage.setItem('isTrue', isTrue.toString());
-            }
+            // function toggleBoolean() {
+            // isTrue = !isTrue;
+            // sessionStorage.setItem('isTrue', isTrue.toString());
+            // }
 
             // Add an event listener to a button that toggles the boolean
-            const button = document.querySelector('#myButton');
-            button.addEventListener('click', toggleBoolean);
+            // const button = document.querySelector('#myButton');
+            // button.addEventListener('click', toggleBoolean);
 
             // simulating button clicks
 
@@ -417,6 +417,27 @@
                 }
             });
 
+            window.addEventListener('storage', (event) => {
+                if (event.key === 'isClearCache') {
+                    if (event.newValue === 'true') {
+                        console.log("hey clear cache!")
+                        clearCache();
+                    } else {
+                        console.log("hey no clear cache!")
+                    }
+                }
+            });
+
+            window.addEventListener('storage', (event) => {
+                if (event.key === 'isDownloadTiny') {
+                    if (event.newValue === 'true') {
+                        console.log("hey download tiny!")
+                        loadWhisper('tiny.en');
+                    } else {
+                        console.log("hey no download tiny!")
+                    }
+                }
+            });
 
         </script>
         <script type="text/javascript" src="stream.js"></script>
