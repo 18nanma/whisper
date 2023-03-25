@@ -394,7 +394,7 @@
             const myElement = document.querySelector('#myElement');
 
             // Get the initial value of the session variable
-            let myText = sessionStorage.getItem('myText');
+            let myText = localStorage.getItem('myText');
 
             // Display the initial value of the session variable
             myElement.value = myText;
@@ -409,11 +409,11 @@
 
             // button click
 
-            let isTrue = sessionStorage.getItem('isTrue') === 'true';
+            let isTrue = localStorage.getItem('isTrue') === 'true';
 
             function toggleBoolean() {
             isTrue = !isTrue;
-            sessionStorage.setItem('isTrue', isTrue.toString());
+            localStorage.setItem('isTrue', isTrue.toString());
             }
 
             // Add an event listener to a button that toggles the boolean
