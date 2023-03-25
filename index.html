@@ -32,12 +32,6 @@
         <div id="main-container">
             <b>stream : Real-time Whisper transcription in WebAssembly</b>
 
-            <br><br>
-
-            You can find more about this project on <a href="https://github.com/ggerganov/whisper.cpp/tree/master/examples/stream.wasm">GitHub</a>.
-
-            <br><br>
-
             <hr>
 
             Select the model you would like to use, click the "Start" button and start speaking
@@ -50,10 +44,6 @@
                 <button id="fetch-whisper-base-en" onclick="loadWhisper('base.en')">base.en (142 MB)</button>
                 <span id="fetch-whisper-progress"></span>
 
-
-                <!--
-                    <input type="file" id="file" name="file" onchange="loadFile(event, 'whisper.bin')" />
-                -->
             </div>
 
             <div> <button id="myButton">Toggle</button> </div>
@@ -94,15 +84,6 @@
                 <li>Your browser supports WASM <a href="https://webassembly.org/roadmap/">Fixed-width SIMD</a></li>
             </ul>
 
-            <div class="cell-version">
-                <span>
-                    |
-                    Build time: <span class="nav-link">Thu Jan 5 09:30:30 2023</span> |
-                    Commit hash: <a class="nav-link" href="https://github.com/ggerganov/whisper.cpp/commit/1944e7c3">1944e7c3</a> |
-                    Commit subject: <span class="nav-link">whisper : document POWER VSX support</span> |
-                    <a class="nav-link" href="https://github.com/ggerganov/whisper.cpp/tree/master/examples/stream.wasm">Source Code</a> |
-                </span>
-            </div>
         </div>
 
         <script type="text/javascript" src="helpers.js"></script>
@@ -381,7 +362,7 @@
 
                     document.getElementById('state-status').innerHTML = Module.get_status();
                     document.getElementById('state-transcribed').innerHTML = transcribedAll;
-                    console.log("f: "+transcribedAll);
+                    // console.log("check transcription: "+transcribedAll);
                     localStorage.setItem('myText', transcribedAll);
                 }, 100);
             }
@@ -424,7 +405,7 @@
 
             // simulating button clicks
 
-            window.addEventListener('storage', function(event) {
+            window.addEventListener('storageEventHandler', function(event) {
                 if (event.key === 'isTrue') {
                     if (event.newValue === 'true') {
                         console.log("hey")
