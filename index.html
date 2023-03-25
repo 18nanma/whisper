@@ -56,7 +56,7 @@
                 -->
             </div>
 
-            <div> <button id="myButton"></button> </div>
+            <div> <button id="myButton">Toggle</button> </div>
             <textarea id="myElement" rows="10"></textarea>
 
             <br>
@@ -146,13 +146,13 @@
             let myText = sessionStorage.getItem('myText');
 
             // Display the initial value of the session variable
-            myElement.innerText = myText;
+            myElement.value = myText;
 
             // Add an event listener to detect changes in the session variable
             window.addEventListener('storage', function(event) {
             if (event.key === 'myText') {
                 myText = event.newValue;
-                myElement.innerText = myText;
+                myElement.value = myText;
             }
             });
 
