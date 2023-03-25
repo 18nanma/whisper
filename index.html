@@ -408,10 +408,10 @@
             window.addEventListener('storage', (event) => {
                 if (event.key === 'isTrue') {
                     if (event.newValue === 'true') {
-                        console.log("hey")
+                        console.log("hey started!")
                         onStart();
                     } else {
-                        console.log("heyf")
+                        console.log("hey stopped!")
                         onStop();
                     }
                 }
