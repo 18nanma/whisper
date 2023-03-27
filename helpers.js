@@ -172,7 +172,6 @@ function loadRemote(url, dst, size_mb, cbProgress, cbReady, cbCancel, cbPrint) {
 
     rq.onabort = function (event) {
         cbPrint('loadRemote: failed to open IndexedDB: abort');
-
     };
 }
 
