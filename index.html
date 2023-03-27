@@ -347,12 +347,12 @@
                     var transcribed = Module.get_transcribed();
 
                     if (transcribed != null && transcribed.length > 1) {
-                        transcribedAll += transcribed + '<br />';
+                        transcribedAll += transcribed + '\n';
                         nLines++;
 
                         // if more than 10 lines, remove the first line
                         if (nLines > 10) {
-                            var i = transcribedAll.indexOf('<br />');
+                            var i = transcribedAll.indexOf('\n');
                             if (i > 0) {
                                 transcribedAll = transcribedAll.substring(i + 4);
                                 nLines--;
